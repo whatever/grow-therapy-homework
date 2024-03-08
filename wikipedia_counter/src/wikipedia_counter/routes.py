@@ -34,6 +34,8 @@ def month_start_end(year, month):
 
 
 def fetch_monthly_count(article, month, project, agent, access):
+    """Return response from wikipedia servers"""
+
     start, end = month_start_end(month.year, month.month)
     start = start.strftime("%Y%m%d00")
     end = end.strftime("%Y%m%d00")
@@ -61,7 +63,12 @@ def count():
         return {"status": "error", "error": "missing article name"}, 400
 
     y, m = map(int, request.args["month"].split("-", 1))
-    month = datetime(y, m, 1)
+
+    try:
+        month = datetime(y, m, 1)
+    except ValueError:
+        logger.warning("Invalid month for url: %s", request.url)
+        return {"status": "error", "error": "invalid month"}, 400
 
     article = request.args["article"]
 
@@ -82,13 +89,12 @@ def count():
     if resp.status_code != 200 and "detail" in resp.json():
         logger.warning(
             "Error fetching count (detail: %s) for url: %s",
-            request.json()["detail"],
+            resp.json()["detail"],
             request.url,
         )
         return {
             "status": "error",
             "error": "failed to fetch count",
-            "detail": resp.json()["detail"],
         }, 400
 
     elif resp.status_code != 200:
@@ -101,6 +107,7 @@ def count():
             "status": "error",
             "error": "failed to fetch count",
         }, 400
+
 
     blob = resp.json()
 

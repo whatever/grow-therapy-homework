@@ -36,7 +36,7 @@ class TestRoutes(unittest.TestCase):
 
             r = client.get(
                 "/api/1/count",
-                query_string={"month": "2015-10", "article": "Python"},
+                query_string={"month": "2015-10", "article": "Gödel's_incompleteness_theorems"},
             )
 
     def test_month_start_end(self):
@@ -98,7 +98,7 @@ class TestRoutes(unittest.TestCase):
 
                     r = client.get(
                         "/api/1/count",
-                        query_string={"month": "2021-01", "article": "Python"},
+                        query_string={"month": "2021-01", "article": "Gödel's_incompleteness_theorems"},
                     )
 
                     self.assertEqual(r.status_code, 200)
@@ -109,7 +109,7 @@ class TestRoutes(unittest.TestCase):
 
         with flask_app.test_client() as client:
 
-            params = {"month": "2021-01", "article": "Python"}
+            params = {"month": "2021-01", "article": "Gödel's_incompleteness_theorems"}
 
             responses = [
                 None,
