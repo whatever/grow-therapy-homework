@@ -9,15 +9,28 @@
 build:
 
 ```bash
+# Via Dockerfile
 docker build -t wikipedia-counter:latest .
+
+# Or via Makefile:
+make build
 ```
 
 build and run for dev:
 
 ```bash
+# docker
 docker run -p8181:8181 -it $(docker build -q .)
+
+# make
+make run
 ```
 
+test:
+
+```bash
+make test
+```
 
 ## examples of targets:
 

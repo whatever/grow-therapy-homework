@@ -11,6 +11,6 @@ WORKDIR /wikipedia-counter
 
 COPY wikipedia_counter .
 
-RUN pip3 install "."
+RUN pip3 install ".[dev]"
 
 CMD wikipedia-counter --workers $WORKERS --host $HOST --port $PORT
