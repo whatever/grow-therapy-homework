@@ -11,20 +11,12 @@ Back-end web application that acts as a wrapper around the Wikipedia API:
 build:
 
 ```bash
-# Via Dockerfile
-docker build -t wikipedia-counter:latest .
-
-# Or via Makefile:
 make build
 ```
 
 build and run for dev:
 
 ```bash
-# docker
-docker run -p8181:8181 -it $(docker build -q .)
-
-# make
 make run
 ```
 
