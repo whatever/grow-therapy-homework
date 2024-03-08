@@ -1,4 +1,4 @@
-FROM python:3.11
+FROM python:3.11-alpine
 
 ENV PIP_ROOT_USER_ACTION=ignore
 ENV HOST=0.0.0.0
