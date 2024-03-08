@@ -4,13 +4,11 @@
 * use wikipedia api to return number of views for an article for a given month
 
 
-# run docker image
+## examples of targets:
 
-
-```bash
-# docker build -t wikipedia-counter .
-# docker run -it wik
-```
+- http://localhost:8181//api/1/count?month=2020-12&article=G%C3%B6del%27s_incompleteness_theorems
+- http://localhost:8181/api/1/count?month=2021-01&article=Python 
+- http://localhost:8181/api/1/count?month=2015-10&article=Albert_Einstein
 
 
 # install package

@@ -55,8 +55,21 @@ class TestRoutes(unittest.TestCase):
                 self.assertEqual(start, datetime(year, month, 1))
                 self.assertEqual(end, expected_end)
 
+    def test_live_albert_einstein(self):
+
+        resp = fetch_monthly_count(
+            article="Albert Einstein",
+            month=datetime(2015, 10, 1),
+            project="en.wikipedia",
+            agent="all-agents",
+            access="all-access",
+        )
+
+        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.json()["items"][0]["views"], 633964)
+
     def test_live_fetch_monthly_count(self):
-        """Test whether we correctly fetch the monthly count"""
+        """Test whether we correctly fetch the wikipedia example"""
 
         pr = "en.wikipedia"
         ag = "all-agents"
@@ -98,7 +111,8 @@ class TestRoutes(unittest.TestCase):
 
                     r = client.get(
                         "/api/1/count",
-                        query_string={"month": "2021-01", "article": "Gödel's_incompleteness_theorems"},
+                        # query_string={"month": "2021-01", "article": "Gödel's_incompleteness_theorems"},
+                        query_string={"month": "2021-01", "article": "Python"},
                     )
 
                     self.assertEqual(r.status_code, 200)

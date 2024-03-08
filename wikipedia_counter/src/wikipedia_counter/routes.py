@@ -108,7 +108,6 @@ def count():
             "error": "failed to fetch count",
         }, 400
 
-
     blob = resp.json()
 
     if not blob or "items" not in blob:
