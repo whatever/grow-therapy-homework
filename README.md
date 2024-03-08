@@ -25,6 +25,16 @@ docker run -p8181:8181 -it $(docker build -q .)
 - http://localhost:8181/api/1/count?month=2021-01&article=Python 
 - http://localhost:8181/api/1/count?month=2015-10&article=Albert_Einstein
 
+## example response:
+
+```bash
+curl -s "http://localhost:8181/api/1/count?month=2021-01&article=Python" | jq .
+{
+  "count": 14423,
+  "status": "ok"
+}
+```
+
 
 # install as python package
 

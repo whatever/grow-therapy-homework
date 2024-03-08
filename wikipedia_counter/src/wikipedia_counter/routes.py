@@ -48,7 +48,7 @@ def fetch_monthly_count(article, month, project, agent, access):
 def count():
     """Return the count for a given wikipedia article and month"""
 
-    logger.info("Requsting count from url: %s", request.url)
+    logger.info("Requesting count from url: %s", request.url)
 
     if "month" not in request.args:
         logger.warning("Missing month for url: %s", request.url)
