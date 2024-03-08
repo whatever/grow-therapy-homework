@@ -32,5 +32,3 @@ class WikipediaCounterApp(gunicorn.app.base.BaseApplication):
         """Return the application"""
 
         return self.application
-
-
