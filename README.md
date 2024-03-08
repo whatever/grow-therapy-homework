@@ -1,5 +1,7 @@
 # wikipedia counter
 
+Back-end web application that acts as a wrapper around the Wikipedia API:
+
 * flask app
 * use wikipedia api to return number of views for an article for a given month
 
