@@ -10,7 +10,7 @@ def main():
     This serves the wikipeida counter api.
     """
 
-    parser = argparse.ArgumentParser(description="knock*knock")
+    parser = argparse.ArgumentParser(description="wikipeida monthly views api server")
     parser.add_argument("--host", default="0.0.0.0", help="host address")
     parser.add_argument("--port", default=8181, help="port number")
     parser.add_argument("--workers", default=2, help="number of workers")
